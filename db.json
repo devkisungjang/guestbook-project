@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "password": "1234",
+      "id": "1"
+    },
+    {
+      "id": "952c",
+      "email": "test02@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "boards": [
+    {
+      "email": "test@gmail.com",
+      "contents": "방명록 작성 수정 및 삭제기능을 만들어주세요.",
+      "isDeleted": false,
+      "id": "2"
+    },
+    {
+      "email": "test@gmail.com",
+      "contents": "삭제버튼은 로그인한 사람과 작성자가 일치해야만 보여야 합니다.",
+      "isDeleted": false,
+      "id": "3"
+    },
+    {
+      "email": "test@gmail.com",
+      "contents": "로그아웃을 누르면 로그인페이지로 돌아가게 해주세요.",
+      "isDeleted": false,
+      "id": "4"
+    },
+    {
+      "email": "test@gmail.com",
+      "contents": "zzzz",
+      "isDeleted": true,
+      "id": "5"
+    },
+    {
+      "id": "62b6",
+      "email": "test@gmail.com",
+      "contents": "수정",
+      "isDeleted": true
+    },
+    {
+      "id": "719e",
+      "email": "test@gmail.com",
+      "contents": "추가",
+      "isDeleted": true
+    },
+    {
+      "id": "5dc4",
+      "email": "test@gmail.com",
+      "contents": "테스트",
+      "isDeleted": true
+    },
+    {
+      "id": "1eea",
+      "email": "test02@gmail.com",
+      "contents": "ㅇㅇㅇ",
+      "isDeleted": true
+    }
+  ]
+}
