@@ -18,7 +18,8 @@ const LoginForm: React.FC = () => {
   // 비동기 처리가 돼야하는 이유? ->
   // email과 password에는 어떠한 값이던 올 수 있다는 any 타입을 명시
   const handleLogin = async (values: any) => {
-    //
+    // 폼에 입력된 값들이 values 라는 객체에 저장된다
+    // 아래 Form.Item의 name 속성이 values 객체의 키가 되고, 사용자가 입력한 값들이 해당 키에 맞춰 저장된다.
     const { email, password } = values;
 
     // TODO: email과 password를 DB에서 찾아서 로그인 검증
@@ -69,6 +70,7 @@ const LoginForm: React.FC = () => {
       {/* 이메일 입력 부분 */}
       <Form.Item
         label="이메일"
+        // 여기서 name의 값은 values 객체의 key 값
         name="email"
         // 이메일 폼 유효성 검사 규칙
         // required: true -> 이 필드가 필수 항목임을 지정, 이메일 입력 안하면 에러남
@@ -80,6 +82,7 @@ const LoginForm: React.FC = () => {
       {/* 비밀번호 입력 부분 */}
       <Form.Item
         label="비밀번호"
+        // 여기서 name의 값은 values 객체의 key 값
         name="password"
         // 비밀번호 폼 유효성 검사 규칙
         // required: true -> 이 필드가 필수 항목임을 지정, 이메일 입력 안하면 에러남
@@ -90,7 +93,7 @@ const LoginForm: React.FC = () => {
       </Form.Item>
       {/* 로그인 버튼 */}
       <Form.Item>
-        htmlType="submit" 이라는
+        {/* htmlType="submit" 이라는 속성 때문에 버튼을 누르면 Formwrapper에있는 onFinish 함수가 실행된다. -> ant Design 라이브러리 기능 */}
         <Button type="primary" htmlType="submit">
           로그인
         </Button>
