@@ -59,6 +59,18 @@
       "email": "test02@gmail.com",
       "contents": "ㅇㅇㅇ",
       "isDeleted": true
+    },
+    {
+      "id": "db74",
+      "email": "test@gmail.com",
+      "contents": "123",
+      "isDeleted": true
+    },
+    {
+      "id": "0c1b",
+      "email": "test@gmail.com",
+      "contents": "테스트2",
+      "isDeleted": false
     }
   ]
 }

@@ -9,6 +9,7 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const AuthLayout = () => {
+  // useNavigate 기능 사용 함수
   const navigate = useNavigate();
 
   useEffect(() => {

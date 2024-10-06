@@ -10,12 +10,11 @@ import shortid from "shortid";
 // useNavigate : 버튼 누르면 해당 위치로 이동하게하는 라우터 기능
 import { useNavigate } from "react-router-dom";
 
-// LoginForm 이라는 컴포넌트는 리액트 함수형(React.FC) 컴포넌트 라는 타입을 지정
+// LoginForm 이라는 컴포넌트 생성 후 타입스크립트 문법으로 리액트 함수형(React.FC) 컴포넌트 라는 타입을 명시
 const LoginForm: React.FC = () => {
   // useNavigate 기능을 사용하기위해 변수 선언
   const navigate = useNavigate();
-  // 로그인 이벤트 핸들러. handleLogin 함수는 비동기 처리(async)로 인해 이메일과 패스워드의 값이 폼에 제출 되었을때 실행된다
-  // 비동기 처리가 돼야하는 이유? ->
+  // 로그인 이벤트 핸들러. handleLogin 함수는 비동기 처리로 인해 이메일과 패스워드의 값이 폼에 제출 되었을때 실행 됨
   // email과 password에는 어떠한 값이던 올 수 있다는 any 타입을 명시
   const handleLogin = async (values: any) => {
     // 폼에 입력된 값들이 values 라는 객체에 저장된다
@@ -36,7 +35,7 @@ const LoginForm: React.FC = () => {
       const response = await axios.get(
         `${process.env.REACT_APP_LOCAL_SERVER}/users?email=${email}`
       );
-      // 만약 서버에서 받아온 비밀번호와 사용자가 입력한 비밀번호가 같으면
+      // 만약 서버에서 받아온 비밀번호와 사용자가 입력한 비밀번호(axios.get을 통해 서버로 요청을 보내면 response라는 객체로 데이터가 들어옴)가 같으면
       if (password === response.data[0].password) {
         // shortid 라이브러리를 이용해 생성된 고유 토큰을 로컬스토리지에 저장
         localStorage.setItem("token", shortid.generate());
@@ -56,7 +55,7 @@ const LoginForm: React.FC = () => {
         return false;
       }
     } catch (error) {
-      // 일시적인 오류가 발생하였습니다. alert
+      // 에러가 발생했을때 일시적인 오류가 발생하였습니다. alert
       alert("일시적인 오류가 발생하였습니다.");
       // return false -> 로그인에 실패했으므로 더 이상 로그인 성공 처리(예: 토큰 저장, 페이지 이동 등)를 하지 않기 위해 return false;로 함수의 실행을 중단
       return false;
@@ -85,7 +84,7 @@ const LoginForm: React.FC = () => {
         // 여기서 name의 값은 values 객체의 key 값
         name="password"
         // 비밀번호 폼 유효성 검사 규칙
-        // required: true -> 이 필드가 필수 항목임을 지정, 이메일 입력 안하면 에러남
+        // required: true -> 이 필드가 필수 항목임을 지정, 이메일 입력 안하면 메세지 출력
         // message: "이메일을 입력해주세요." -> 이메일을 입력하지 않았을때 띄워줄 메세지
         rules={[{ required: true, message: "비밀번호를 입력해주세요." }]}
       >
@@ -102,7 +101,7 @@ const LoginForm: React.FC = () => {
   );
 };
 
-// LoginForm 컴포넌트 재사용을 위해  내보냄
+// LoginForm 컴포넌트 재사용을 위해 내보냄
 export default LoginForm;
 
 // Styled Components 라이브러리로 폼 컴포넌트에 스타일을 적용
